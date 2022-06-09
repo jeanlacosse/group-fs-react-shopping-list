@@ -20,4 +20,27 @@ router.get("/", (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+      let itemId = req.params.id;
+
+      const sqlQuery =`
+      DELETE FROM "items"
+      Where id =$1;
+      `;
+
+      const sqlParams = {
+        itemId
+      };
+
+      console.log('in Delete /items', itemId);
+
+      pool.query(sqlQuery, sqlParams)
+        .then(() => {
+          res.sendStatus(200);
+        })
+        .catch((err) => {
+          console.log(`Delete to items failed`, err)
+        });
+})
+
 module.exports = router;
