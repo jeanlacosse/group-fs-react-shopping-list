@@ -5,6 +5,7 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import ResetList from '../ResetList/ResetList.jsx';
+import ListContainer from '../ListContainer/ListContainer.jsx';
 function App() {
 
 //feature/item-form-post
@@ -22,6 +23,7 @@ function App() {
         })
     }
 
+
     const resetList = () => {
         axios.put('/list')
             .then(() => {
@@ -35,6 +37,7 @@ function App() {
 
 
 
+
     useEffect(() => {
         getItems()
     },[])
@@ -43,7 +46,11 @@ function App() {
     const getItems = () => {
         axios.get("/list")
         .then((response) => {
-            console.log('THIS IS THE GET', response)
+            //The information we want is in the data
+            // we are getting back a huge object but
+            // we just want to get the .data of it
+            setShoppingList(response.data)
+            //console.log('THIS IS THE GET', response)
         })
         .catch((err) => {
             alert('ERR in the GET');
@@ -51,14 +58,17 @@ function App() {
         })
     }    
 
-
     return (
         <div className="App">
             <Header />
             <main>
                 <p>Under Construction...</p>
             {/* <ItemForm  addItem={addItem}/>  */}
+
+            <ListContainer shoppingList={shoppingList}/>
+
             <ResetList resetList={resetList}/>
+
             </main>
         </div>
     );
