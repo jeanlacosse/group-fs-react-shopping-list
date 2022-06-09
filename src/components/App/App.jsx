@@ -5,7 +5,12 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import ResetList from '../ResetList/ResetList.jsx';
+
+import ItemDelete from '../ItemDelete/ItemDelete.jsx';
+
+
 import ListContainer from '../ListContainer/ListContainer.jsx';
+
 function App() {
 
 //feature/item-form-post
@@ -58,17 +63,40 @@ function App() {
         })
     }    
 
+
+    const delItem = (item) => {
+        console.log('itemDelete', item);
+
+        axios.delete(`/items/${ItemDelete}`)
+        .then(response => {
+        
+        getItems();
+        })
+        .catch(err => {
+            alert('Error deleting Item');
+            console.log(err);
+        })
+    }
+ 
+
+
+
     return (
         <div className="App">
             <Header />
             <main>
                 <p>Under Construction...</p>
 
+            <ItemForm  addItem={addItem}/>  
+            <ItemDelete />
+
+
             <ItemForm  addItem={addItem}/> 
 
             <ListContainer shoppingList={shoppingList}/>
 
             <ResetList resetList={resetList}/>
+
 
             </main>
         </div>
