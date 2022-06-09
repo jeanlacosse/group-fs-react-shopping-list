@@ -22,30 +22,46 @@ router.get("/", (req, res) => {
 
 
 router.delete('/:id', (req, res) => {
-      let itemId = req.params.id;
-      console.log('itemId', itemId);
+  let itemId = req.params.id;
+  console.log('itemId', itemId);
 
-      const sqlQuery =`
+  const sqlQuery = `
       DELETE FROM "items"
       Where id =$1;
       `;
 
-      const sqlParams = [itemId];
+  const sqlParams = [itemId];
 
-      console.log('in Delete /items', itemId);
+  console.log('in Delete /items', itemId);
 
-      pool.query(sqlQuery, sqlParams)
-        .then(() => {
-          res.sendStatus(200);
-        })
-        .catch((err) => {
-          console.log(`Delete to items failed`, err)
-        });
+  pool.query(sqlQuery, sqlParams)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(`Delete to items failed`, err)
+      res.sendStatus(500)
+    });
 })
 
+router.delete('/', (req, res) => {
+
+  const sqlQuery = `
+  DELETE FROM "items"
+  `;
+
+  pool.query(sqlQuery)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(`Delete to items failed`, err)
+      res.sendStatus(500)
+    });
+})
 
 router.post('/', (req, res) => {
-  
+
   const sqlText = `
   INSERT INTO items (name, quantity, unit) 
   VALUES ($1, $2, $3);
@@ -54,16 +70,16 @@ router.post('/', (req, res) => {
     req.body.name,
     req.body.quantity,
     req.body.unit
-  ] 
+  ]
 
   pool.query(sqlText, sqlParams)
-  .then(() => {
-    res.sendStatus(201);
-  })
-  .catch((err) => {
-    console.log('err is', err);
-    res.sendStatus(500)
-  });
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('err is', err);
+      res.sendStatus(500)
+    });
 });
 
 router.put('/:id', (req, res) => {
@@ -97,15 +113,15 @@ router.put('/', (req, res) => {
   `
 
 
-pool
-.query(sqlText)
-.then(() => {
-  res.sendStatus(200)
-})
-.catch((err) => {
-  console.log('Reset Purchases failed', err)
-  res.sendStatus(500)
-})
+  pool
+    .query(sqlText)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch((err) => {
+      console.log('Reset Purchases failed', err)
+      res.sendStatus(500)
+    })
 })
 
 

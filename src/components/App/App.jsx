@@ -7,7 +7,7 @@ import ItemForm from '../ItemForm/ItemForm.jsx';
 import ResetList from '../ResetList/ResetList.jsx';
 
 import ItemDelete from '../ItemDelete/ItemDelete.jsx';
-
+import ClearAll from '../ItemDelete/ClearAll.jsx';
 
 import ListContainer from '../ListContainer/ListContainer.jsx';
 
@@ -80,23 +80,37 @@ function App() {
         console.log('itemDelete', item);
 
         axios.delete(`/list/${item}`)
-        .then(response => {
-        
-        getItems();
-        })
-        .catch(err => {
-            alert('Error deleting Item');
-            console.log(err);
-        })
-    }
- 
+            .then(response => {
 
+                getItems();
+            })
+            .catch(err => {
+                alert('Error deleting Item');
+                console.log(err);
+            })
+    }
+
+    const delAll = () => {
+        console.log('clear all');
+
+        axios.delete(`/list`)
+            .then(response => {
+
+                getItems();
+            })
+            .catch(err => {
+                alert('Error deleting Item');
+                console.log(err);
+            })
+    }
 
 
     return (
         <div className="App">
             <Header />
+            <ClearAll delAll={delAll} />
             <main>
+
             <ItemForm  addItem={addItem}/>  
             <ListContainer 
             shoppingList={shoppingList} 
@@ -105,6 +119,7 @@ function App() {
             />
 
              <ResetList resetList={resetList} />
+
 
 
 
