@@ -108,17 +108,21 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <ClearAll delAll={delAll} />
+            
             <main>
+           
 
-            <ItemForm  addItem={addItem}/>  
+            <ItemForm  addItem={addItem}/> 
+            <p></p>
+            <ResetList resetList={resetList} />
+            <ClearAll delAll={delAll} /> 
             <ListContainer 
             shoppingList={shoppingList} 
             onPurchaseItem={onPurchaseItem}
             delItem={delItem}
             />
 
-             <ResetList resetList={resetList} />
+            
 
 
 
