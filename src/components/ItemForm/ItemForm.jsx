@@ -33,16 +33,19 @@ function ItemForm({
                 onChange={(evt) => setNewName(evt.target.value)}
                 type="text"
                 placeholder='New Shopping Item' 
+                value={newName}
                 />
             <input
                 onChange={(evt) => setNewQty(evt.target.value)}
                 type="text"
                 placeholder='Quantity of Item' 
+                value={newQty}
                 />
             <input
                 onChange={(evt) => setNewUnit(evt.target.value)}
                 type="text"
                 placeholder='Unit of Item' 
+                value={newUnit}
                 />
             <input type="submit"  value="Save Item"/>
         </form>
