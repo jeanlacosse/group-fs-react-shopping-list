@@ -1,7 +1,16 @@
-const ResetList = () => {
+const ResetList = ({resetList}) => {
+    const onResetPurchased = () => {
+        resetList();
+        console.log('in onResetPurchased')
+    }
+
     return (
         <>
-            Testing reset component
+            <button
+                onClick={onResetPurchased}
+            >
+                Reset
+            </button>
         </>
     )
 }
