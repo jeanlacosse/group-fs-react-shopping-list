@@ -1,11 +1,12 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 
 function App() {
 
+//feature/item-form-post
     let [shoppingList, setShoppingList] = useState([]);
 
     const addItem = (itemToAdd) => {
@@ -20,6 +21,21 @@ function App() {
     }
     
 
+
+    useEffect(() => {
+        getItems()
+    },[])
+    const getItems = () => {
+        axios.get("/list")
+        .then((response) => {
+            console.log('THIS IS THE GET', response)
+        })
+        .catch((err) => {
+            alert('ERR in the GET');
+            console.log(err);
+        })
+    }    
+ main
     return (
         <div className="App">
             <Header />

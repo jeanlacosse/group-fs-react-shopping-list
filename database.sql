@@ -14,3 +14,6 @@ VALUES
 ('CBD Ointment', 4.3, 'oz'),
 ('black tea', 8.4, 'oz'),
 ('pokemon cards', 20, 'packs');
+
+-- This is in Router GET to make the capitilized letters not matter
+SELECT * FROM items ORDER BY LOWER(name);
