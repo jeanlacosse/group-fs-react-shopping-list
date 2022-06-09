@@ -35,6 +35,17 @@ function App() {
             })
     }
 
+    const onPurchaseItem = (itemId) => {
+        console.log('in on Purchase', itemId.id)
+        axios.put(`/list/${itemId.id}`)
+            .then(() => {
+                console.log('Purchase success')
+            })
+            .catch((err) => {
+                console.log('Purchase failed', err)
+            })
+    }
+
 
 
 
@@ -66,7 +77,10 @@ function App() {
 
             <ItemForm  addItem={addItem}/> 
 
-            <ListContainer shoppingList={shoppingList}/>
+            <ListContainer 
+                shoppingList={shoppingList}
+                onPurchaseItem={onPurchaseItem}
+            />
 
             <ResetList resetList={resetList}/>
 

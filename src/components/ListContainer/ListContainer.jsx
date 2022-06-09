@@ -1,5 +1,6 @@
+import BuyButton from "../BuyButton/BuyButton"
 
-function ListContainer({shoppingList}){
+function ListContainer({shoppingList, onPurchaseItem}){
     return(
     <>
     <h2>SHOPPING LIST BELOW</h2>
@@ -8,6 +9,7 @@ function ListContainer({shoppingList}){
         {shoppingList.map(item => (
             <li key={item.id}>
                 {item.name} {item.quantity} {item.unit}
+                <BuyButton onPurchase={onPurchaseItem}/>
             </li>
         ))}
     </ul>

@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
   pool
     .query(sqlText)
     .then((result) => {
-      console.log(`Grabbing info from DB`, result);
+      // console.log(`Grabbing info from DB`, result);
       res.send(result.rows);
     })
     .catch((err) => {
@@ -42,6 +42,29 @@ router.post('/', (req, res) => {
     res.sendStatus(500)
   });
 });
+
+router.put('/:id', (req, res) => {
+  const item = req.params.id;
+  console.log('This is the item id', item)
+  const sqlText = `
+    UPDATE items
+    SET purchased = true
+    WHERE id = $1
+  `
+  const sqlParams = [
+    item
+  ]
+
+  pool.query(sqlText, sqlParams)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch((err) => {
+      console.log('Purchased failed', err)
+      res.sendStatus(500)
+    })
+
+})
 
 
 router.put('/', (req, res) => {
