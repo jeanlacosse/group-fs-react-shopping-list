@@ -8,8 +8,16 @@ function ItemForm({
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        addItem(newItem)
+        addItem(newItem);
+        clearInputFields();
     }
+
+    const clearInputFields = () => {
+        setNewItem({name: ''});
+        setNewItem({quantity: ''});
+        setNewItem({unit: ''});
+    }
+
     return (
         <form action="" onSubmit={handleSubmit}>
             <input

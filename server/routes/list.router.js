@@ -20,4 +20,26 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  
+  const sqlText = `
+  INSERT INTO items (name, quantity, unit) 
+  VALUES ($1, $2, $3);
+  `
+  const sqlParams = [
+    req.body.name,
+    req.body.quantity,
+    req.body.unit
+  ] 
+
+  pool.query(sqlText, sqlParams)
+  .then((res) => {
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.log('err is', err);
+    res.sendStatus(500)
+  });
+});
+
 module.exports = router;
