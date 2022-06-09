@@ -20,6 +20,7 @@ router.get("/", (req, res) => {
     });
 });
 
+
 router.post('/', (req, res) => {
   
   const sqlText = `
@@ -41,5 +42,25 @@ router.post('/', (req, res) => {
     res.sendStatus(500)
   });
 });
+
+
+router.put('/', (req, res) => {
+  const sqlText = `
+  UPDATE items
+  SET purchased = false
+  `
+
+
+pool
+.query(sqlText)
+.then(() => {
+  res.sendStatus(200)
+})
+.catch((err) => {
+  console.log('Reset Purchases failed', err)
+  res.sendStatus(500)
+})
+})
+
 
 module.exports = router;
