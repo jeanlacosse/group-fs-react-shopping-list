@@ -1,11 +1,12 @@
 
 import BuyButton from "../BuyButton/BuyButton"
-
-function ListContainer({shoppingList, onPurchaseItem}){
-
 import ListItems from "../ListItems/ListItems"
 
-function ListContainer({shoppingList, delItem}){
+
+
+
+
+function ListContainer({shoppingList, delItem, onPurchaseItem}){
 
     return(
     <>
@@ -18,11 +19,13 @@ function ListContainer({shoppingList, delItem}){
            key={item.id}
            item={item}
            delItem={delItem}
+           onPurchase={onPurchaseItem}
            />
 
         ))}
     </ul>
     </>
 )}
+
 
 export default ListContainer
