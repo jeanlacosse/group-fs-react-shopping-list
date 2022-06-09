@@ -5,7 +5,11 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import ResetList from '../ResetList/ResetList.jsx';
+
 import ItemDelete from '../ItemDelete/ItemDelete.jsx';
+
+
+import ListContainer from '../ListContainer/ListContainer.jsx';
 
 function App() {
 
@@ -16,28 +20,49 @@ function App() {
         axios.post('/list', itemToAdd)
         .then(response => {
             // here I rerun the axios.GET
+            getItems()
         })
         .catch(err => {
             alert('error adding item')
             console.log('err is', err)
         })
     }
-    
+
+
+    const resetList = () => {
+        axios.put('/list')
+            .then(() => {
+                console.log('Reset Complete')
+                getItems();
+            })
+            .catch((err) => {
+                console.log('Reset did not work')
+            })
+    }
+
+
 
 
     useEffect(() => {
         getItems()
     },[])
+
+
     const getItems = () => {
         axios.get("/list")
         .then((response) => {
-            console.log('THIS IS THE GET', response)
+            //The information we want is in the data
+            // we are getting back a huge object but
+            // we just want to get the .data of it
+            setShoppingList(response.data)
+            //console.log('THIS IS THE GET', response)
         })
         .catch((err) => {
             alert('ERR in the GET');
             console.log(err);
         })
     }    
+
 
     const delItem = (item) => {
         console.log('itemDelete', item);
@@ -54,13 +79,25 @@ function App() {
     }
  
 
+
+
     return (
         <div className="App">
             <Header />
             <main>
                 <p>Under Construction...</p>
-            {/* <ItemForm  addItem={addItem}/>  */}
+
+            <ItemForm  addItem={addItem}/>  
             <ItemDelete />
+
+
+            <ItemForm  addItem={addItem}/> 
+
+            <ListContainer shoppingList={shoppingList}/>
+
+            <ResetList resetList={resetList}/>
+
+
             </main>
         </div>
     );

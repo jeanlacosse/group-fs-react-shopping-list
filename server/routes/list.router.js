@@ -20,6 +20,7 @@ router.get("/", (req, res) => {
     });
 });
 
+
 router.delete('/:id', (req, res) => {
       let itemId = req.params.id;
 
@@ -42,5 +43,49 @@ router.delete('/:id', (req, res) => {
           console.log(`Delete to items failed`, err)
         });
 })
+
+
+router.post('/', (req, res) => {
+  
+  const sqlText = `
+  INSERT INTO items (name, quantity, unit) 
+  VALUES ($1, $2, $3);
+  `
+  const sqlParams = [
+    req.body.name,
+    req.body.quantity,
+    req.body.unit
+  ] 
+
+  pool.query(sqlText, sqlParams)
+  .then((res) => {
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.log('err is', err);
+    res.sendStatus(500)
+  });
+});
+
+
+router.put('/', (req, res) => {
+  const sqlText = `
+  UPDATE items
+  SET purchased = false
+  `
+
+
+pool
+.query(sqlText)
+.then(() => {
+  res.sendStatus(200)
+})
+.catch((err) => {
+  console.log('Reset Purchases failed', err)
+  res.sendStatus(500)
+})
+})
+
+
 
 module.exports = router;
