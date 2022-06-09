@@ -15,10 +15,14 @@ ul {
 li {
   display: inline-block;
   text-align: center;
+  line-height: 23px;
   border: 1px solid black;
   padding-top: 4px;
   background-color: lightgray;
-  height: 80px;
-  width: 220px;
+  height: 100px;
+  width: 200px;
   margin: 0 12px 12px 12px;
+}
+input {
+  margin-top: 10px;
 }
