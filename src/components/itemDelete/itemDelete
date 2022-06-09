@@ -1,0 +1,28 @@
+function itemDelete(){
+    // return (
+        // <>
+        // <td><button onClick={() => {DeleteItem(item.id)}}>Clear</button><td>
+        // </>
+        // )
+    
+    const delItem = (itemDelete) => {
+        console.log('itemDelete', itemDelete)
+
+        axios.delete(`/list`)
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+export default DeleteItem;
+

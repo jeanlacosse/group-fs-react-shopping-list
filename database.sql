@@ -4,6 +4,7 @@ CREATE TABLE items (
     "name" VARCHAR(80) NOT NULL,
     quantity DECIMAL(5,2),
     unit VARCHAR(20)
+    purchased BOOLEAN DEFAULT FALSE
 );
 -- It is also helpful to include some test data
 INSERT INTO items ("name", quantity, unit)
