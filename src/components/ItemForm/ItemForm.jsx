@@ -11,6 +11,7 @@ function ItemForm({
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        // each input state passed into an object that gets sent over
         addItem({
             name: newName,
             quantity: newQty,
