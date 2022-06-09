@@ -46,6 +46,7 @@ function App() {
         axios.put(`/list/${itemId.id}`)
             .then(() => {
                 console.log('Purchase success')
+                getItems();
             })
             .catch((err) => {
                 console.log('Purchase failed', err)
