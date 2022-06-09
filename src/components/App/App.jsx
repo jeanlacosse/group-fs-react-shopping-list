@@ -57,7 +57,7 @@ function App() {
             <Header />
             <main>
                 <p>Under Construction...</p>
-            {/* <ItemForm  addItem={addItem}/>  */}
+            <ItemForm  addItem={addItem}/> 
             <ResetList resetList={resetList}/>
             </main>
         </div>
