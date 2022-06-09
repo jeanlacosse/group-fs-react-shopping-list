@@ -1,4 +1,3 @@
-import ListContainer from "../ListContainer/ListContainer";
 
 function ItemDelete({delItem, item}){
     return (
