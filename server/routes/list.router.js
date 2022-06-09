@@ -23,15 +23,14 @@ router.get("/", (req, res) => {
 
 router.delete('/:id', (req, res) => {
       let itemId = req.params.id;
+      console.log('itemId', itemId);
 
       const sqlQuery =`
       DELETE FROM "items"
       Where id =$1;
       `;
 
-      const sqlParams = {
-        itemId
-      };
+      const sqlParams = [itemId];
 
       console.log('in Delete /items', itemId);
 

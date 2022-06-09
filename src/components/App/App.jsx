@@ -68,7 +68,7 @@ function App() {
     const delItem = (item) => {
         console.log('itemDelete', item);
 
-        axios.delete(`/items/${ItemDelete}`)
+        axios.delete(`/list/${item}`)
         .then(response => {
         
         getItems();
@@ -89,12 +89,13 @@ function App() {
 
 
             <ItemForm  addItem={addItem}/>  
-            <ItemDelete />
+            
 
 
            
 
-                <ListContainer shoppingList={shoppingList} />
+                <ListContainer shoppingList={shoppingList} 
+                delItem={delItem}/>
 
                 <ResetList resetList={resetList} />
 

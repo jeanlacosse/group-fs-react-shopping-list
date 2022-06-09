@@ -1,6 +1,6 @@
 import ListItems from "../ListItems/ListItems"
 
-function ListContainer({shoppingList}){
+function ListContainer({shoppingList, delItem}){
     return(
     <>
     <h2>SHOPPING LIST BELOW</h2>
@@ -10,6 +10,7 @@ function ListContainer({shoppingList}){
            <ListItems
            key={item.id}
            item={item}
+           delItem={delItem}
            />
         ))}
     </ul>

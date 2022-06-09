@@ -1,7 +1,9 @@
-function ItemDelete({}){
+import ListContainer from "../ListContainer/ListContainer";
+
+function ItemDelete({delItem, item}){
     return (
         <>
-        <button onClick={() => {ItemDelete(item.id)}}>Clear</button>
+        <button onClick={()=>delItem(item.id)}>Delete</button>
         </>
     )
 }
