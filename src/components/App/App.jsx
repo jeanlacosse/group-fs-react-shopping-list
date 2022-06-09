@@ -15,15 +15,34 @@ function App() {
         axios.post('/list', itemToAdd)
         .then(response => {
             // here I rerun the axios.GET
+            getItems()
         })
         .catch(err => {
             alert('error adding item')
             console.log('err is', err)
         })
     }
+
+
+    const resetList = () => {
+        axios.put('/list')
+            .then(() => {
+                console.log('Reset Complete')
+                getItems();
+            })
+            .catch((err) => {
+                console.log('Reset did not work')
+            })
+    }
+
+
+
+
     useEffect(() => {
         getItems()
     },[])
+
+
     const getItems = () => {
         axios.get("/list")
         .then((response) => {
@@ -38,13 +57,18 @@ function App() {
             console.log(err);
         })
     }    
+
     return (
         <div className="App">
             <Header />
             <main>
                 <p>Under Construction...</p>
             {/* <ItemForm  addItem={addItem}/>  */}
+
             <ListContainer shoppingList={shoppingList}/>
+
+            <ResetList resetList={resetList}/>
+
             </main>
         </div>
     );
