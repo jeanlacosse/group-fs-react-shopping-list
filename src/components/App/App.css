@@ -2,6 +2,23 @@ main {
   width: 90%;
   margin: auto;
 }
+h5,h2{
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
+}
+.listStyle {
+  list-style-position:inside;
+}
+li {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  padding-top: 4px;
+  background-color: lightgray;
+  height: 80px;
+  width: 220px;
+  margin: 0 12px 12px 12px;
 }
