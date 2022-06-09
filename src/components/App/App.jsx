@@ -88,12 +88,12 @@ function App() {
                 <p>Under Construction...</p>
 
             <ItemForm  addItem={addItem}/>  
-            <ItemDelete />
+            
 
 
             <ItemForm  addItem={addItem}/> 
 
-            <ListContainer shoppingList={shoppingList}/>
+            <ListContainer shoppingList={shoppingList} delItem={delItem}/>
 
             <ResetList resetList={resetList}/>
 

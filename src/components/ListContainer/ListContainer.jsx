@@ -1,5 +1,6 @@
+import ItemDelete from "../ItemDelete/ItemDelete"
 
-function ListContainer({shoppingList}){
+function ListContainer({shoppingList, delItem}){
     return(
     <>
     <h2>SHOPPING LIST BELOW</h2>
@@ -8,6 +9,7 @@ function ListContainer({shoppingList}){
         {shoppingList.map(item => (
             <li key={item.id}>
                 {item.name} {item.quantity} {item.unit}
+                <ItemDelete item={item} delItem={delItem}/>
             </li>
         ))}
     </ul>
