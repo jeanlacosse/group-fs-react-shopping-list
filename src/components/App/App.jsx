@@ -14,6 +14,7 @@ function App() {
         axios.post('/list', itemToAdd)
         .then(response => {
             // here I rerun the axios.GET
+            getItems()
         })
         .catch(err => {
             alert('error adding item')
@@ -21,8 +22,6 @@ function App() {
         })
     }
     
-
-
     useEffect(() => {
         getItems()
     },[])
@@ -36,7 +35,6 @@ function App() {
             console.log(err);
         })
     }    
- main
 
     return (
         <div className="App">
