@@ -14,13 +14,14 @@ function App() {
         axios.post('/list', itemToAdd)
         .then(response => {
             // here I rerun the axios.GET
+            getItems()
         })
         .catch(err => {
             alert('error adding item')
             console.log('err is', err)
         })
     }
-    
+
     const resetList = () => {
         axios.put('/list')
             .then(() => {
@@ -31,6 +32,7 @@ function App() {
                 console.log('Reset did not work')
             })
     }
+
 
 
     useEffect(() => {
