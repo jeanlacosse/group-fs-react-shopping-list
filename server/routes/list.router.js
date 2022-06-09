@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
   ] 
 
   pool.query(sqlText, sqlParams)
-  .then((res) => {
+  .then(() => {
     res.sendStatus(201);
   })
   .catch((err) => {

@@ -8,19 +8,20 @@ import ResetList from '../ResetList/ResetList.jsx';
 import ListContainer from '../ListContainer/ListContainer.jsx';
 function App() {
 
-//feature/item-form-post
+    //feature/item-form-post
     let [shoppingList, setShoppingList] = useState([]);
 
     const addItem = (itemToAdd) => {
+        console.log('item to post', itemToAdd)
         axios.post('/list', itemToAdd)
-        .then(response => {
-            // here I rerun the axios.GET
-            getItems()
-        })
-        .catch(err => {
-            alert('error adding item')
-            console.log('err is', err)
-        })
+            .then(() => {
+                // here I rerun the axios.GET
+                getItems()
+            })
+            .catch(err => {
+                alert('error adding item')
+                console.log('err is', err)
+            })
     }
 
 
@@ -40,35 +41,34 @@ function App() {
 
     useEffect(() => {
         getItems()
-    },[])
+    }, [])
 
 
     const getItems = () => {
         axios.get("/list")
-        .then((response) => {
-            //The information we want is in the data
-            // we are getting back a huge object but
-            // we just want to get the .data of it
-            setShoppingList(response.data)
-            //console.log('THIS IS THE GET', response)
-        })
-        .catch((err) => {
-            alert('ERR in the GET');
-            console.log(err);
-        })
-    }    
+            .then((response) => {
+                //The information we want is in the data
+                // we are getting back a huge object but
+                // we just want to get the .data of it
+                setShoppingList(response.data)
+                //console.log('THIS IS THE GET', response)
+            })
+            .catch((err) => {
+                alert('ERR in the GET');
+                console.log(err);
+            })
+    }
 
     return (
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
 
-            <ItemForm  addItem={addItem}/> 
+                <ItemForm addItem={addItem} />
 
-            <ListContainer shoppingList={shoppingList}/>
+                <ListContainer shoppingList={shoppingList} />
 
-            <ResetList resetList={resetList}/>
+                <ResetList resetList={resetList} />
 
             </main>
         </div>

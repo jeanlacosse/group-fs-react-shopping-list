@@ -4,34 +4,42 @@ function ItemForm({
     addItem
 }) {
 
-    const [newItem, setNewItem] = useState({})
+    // need a seperate state value for each input
+    const [newName, setNewName] = useState({})
+    const [newQty, setNewQty] = useState({})
+    const [newUnit, setNewUnit] = useState({})
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        addItem(newItem);
+        addItem({
+            name: newName,
+            quantity: newQty,
+            unit: newUnit
+        });
+
         clearInputFields();
     }
 
     const clearInputFields = () => {
-        setNewItem({name: ''});
-        setNewItem({quantity: ''});
-        setNewItem({unit: ''});
+        setNewName('');
+        setNewQty('');
+        setNewUnit('');
     }
 
     return (
         <form action="" onSubmit={handleSubmit}>
             <input
-                onChange={(evt) => setNewItem({name: evt.target.value})}
+                onChange={(evt) => setNewName(evt.target.value)}
                 type="text"
                 placeholder='New Shopping Item' 
                 />
             <input
-                onChange={(evt) => setNewItem({quantity: evt.target.value})}
+                onChange={(evt) => setNewQty(evt.target.value)}
                 type="text"
                 placeholder='Quantity of Item' 
                 />
             <input
-                onChange={(evt) => setNewItem({unit: evt.target.value})}
+                onChange={(evt) => setNewUnit(evt.target.value)}
                 type="text"
                 placeholder='Unit of Item' 
                 />
