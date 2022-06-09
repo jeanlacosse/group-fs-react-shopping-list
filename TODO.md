@@ -1,16 +1,16 @@
 ENTITY - LIST OF SHOPPING ITEMS TO BUY
 
 Needs
+    [x] SQL DB
+        [x] create table 
+            [x] id, name varchar(80), qty (decimal nums), units varchar(20)
+            [x] add in some starter data as template
+            [x] sort alphabetically
+    [x] npm install all the necessary packages
+        [x] which ones??
     [] form for new item/Create
         [] name, qty, units
     [] on page load show/Read all items on DOM
-    [] SQL DB
-        [] create table 
-            [] id, name varchar(80), qty (decimal nums), units varchar(20)
-            [] add in some starter data as template
-            [] sort alphabetically
-    [] npm install all the necessary packages
-        [] which ones??
     [] buttons
         [] remove/Delete single item
         [] Update/show as purchased
@@ -23,6 +23,6 @@ Needs
     [] components
         [] Item - all props of item object
         [] list - all the items listed
-        
+
 
     
