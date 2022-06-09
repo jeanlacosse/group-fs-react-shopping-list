@@ -41,6 +41,17 @@ function App() {
             })
     }
 
+    const onPurchaseItem = (itemId) => {
+        console.log('in on Purchase', itemId.id)
+        axios.put(`/list/${itemId.id}`)
+            .then(() => {
+                console.log('Purchase success')
+            })
+            .catch((err) => {
+                console.log('Purchase failed', err)
+            })
+    }
+
 
 
 
@@ -99,11 +110,19 @@ function App() {
             <Header />
             <ClearAll delAll={delAll} />
             <main>
-                <ItemForm addItem={addItem} />
-                <ListContainer shoppingList={shoppingList}
-                    delItem={delItem}
-                />
-                <ResetList resetList={resetList} />
+
+            <ItemForm  addItem={addItem}/>  
+            <ListContainer 
+            shoppingList={shoppingList} 
+            onPurchaseItem={onPurchaseItem}
+            delItem={delItem}
+            />
+
+             <ResetList resetList={resetList} />
+
+
+
+
             </main>
         </div>
     );
