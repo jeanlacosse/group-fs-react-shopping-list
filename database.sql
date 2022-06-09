@@ -3,7 +3,8 @@ CREATE TABLE items (
     id SERIAL PRIMARY KEY,
     "name" VARCHAR(80) NOT NULL,
     quantity DECIMAL(5,2),
-    unit VARCHAR(20)
+    unit VARCHAR(20),
+    purchased BOOLEAN DEFAULT FALSE
 );
 -- It is also helpful to include some test data
 INSERT INTO items ("name", quantity, unit)
@@ -13,3 +14,6 @@ VALUES
 ('CBD Ointment', 4.3, 'oz'),
 ('black tea', 8.4, 'oz'),
 ('pokemon cards', 20, 'packs');
+
+-- This is in Router GET to make the capitilized letters not matter
+SELECT * FROM items ORDER BY LOWER(name);
