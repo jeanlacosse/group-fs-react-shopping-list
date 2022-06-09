@@ -7,8 +7,13 @@ function ListItems({item, delItem, onPurchase}){
     return(
     <li>
         {item.name}<br></br> {item.quantity} {item.unit}<br></br>
+        {item.purchased ? <>Purchased</> : 
+        <>
         <ItemDelete delItem={delItem} item={item}/>
         <BuyButton onPurchase={onPurchase} item={item}/>
+        </>
+        }
+     
 
     </li>
     )
