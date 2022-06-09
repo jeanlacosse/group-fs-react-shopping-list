@@ -1,15 +1,15 @@
 
 
-const BuyButton = ({onPurchase}) => {
-    const onPurchaseItem = () => {
+const BuyButton = ({onPurchase, item}) => {
+    const onPurchaseItem = (item) => {
         console.log('In onPurchase')
-        onPurchase({id: 5})
+        onPurchase({id: item})
     }
 
     return (
         <>
             <button
-                onClick={onPurchaseItem}
+                onClick={()=> {onPurchaseItem(item.id)}}
             >
                 Buy
             </button>
@@ -17,4 +17,4 @@ const BuyButton = ({onPurchase}) => {
     )
 }
 
-export default BuyButton
+export default BuyButton;

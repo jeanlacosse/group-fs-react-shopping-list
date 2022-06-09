@@ -97,24 +97,14 @@ function App() {
         <div className="App">
             <Header />
             <main>
-
-
-
+            <ItemForm  addItem={addItem}/>  
             <ListContainer 
-                shoppingList={shoppingList}
-                onPurchaseItem={onPurchaseItem}
+            shoppingList={shoppingList} 
+            onPurchaseItem={onPurchaseItem}
+            delItem={delItem}
             />
 
-            <ItemForm  addItem={addItem}/>  
-            
-
-
-           
-
-                <ListContainer shoppingList={shoppingList} 
-                delItem={delItem}/>
-
-                <ResetList resetList={resetList} />
+             <ResetList resetList={resetList} />
 
 
 
