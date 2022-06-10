@@ -6,7 +6,7 @@ const pool = require("../modules/pool.js");
 router.get("/", (req, res) => {
   const sqlText = `
   SELECT * FROM items 
-  ORDER BY purchase ASC, 
+  ORDER BY purchased ASC, 
   LOWER(name);
     `;
   pool

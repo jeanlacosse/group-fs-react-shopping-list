@@ -2,16 +2,20 @@ main {
   width: 90%;
   margin: auto;
 }
-h5,h2{
+
+h5,
+h2 {
   text-align: center;
 }
 
 ul {
   list-style-type: none;
 }
+
 .listStyle {
-  list-style-position:inside;
+  list-style-position: inside;
 }
+
 li {
   display: inline-block;
   text-align: center;
@@ -23,6 +27,12 @@ li {
   width: 200px;
   margin: 0 12px 12px 12px;
 }
+
 input {
   margin-top: 10px;
+}
+
+.oscar {
+  height: 20px;
+  width: auto;
 }
