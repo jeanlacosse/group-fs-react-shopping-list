@@ -5,9 +5,9 @@ function ItemForm({
 }) {
 
     // need a seperate state value for each input
-    const [newName, setNewName] = useState({})
-    const [newQty, setNewQty] = useState({})
-    const [newUnit, setNewUnit] = useState({})
+    const [newName, setNewName] = useState('')
+    const [newQty, setNewQty] = useState('')
+    const [newUnit, setNewUnit] = useState('')
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -34,18 +34,21 @@ function ItemForm({
                 type="text"
                 placeholder='New Shopping Item' 
                 value={newName}
+                required
                 />
             <input
                 onChange={(evt) => setNewQty(evt.target.value)}
                 type="text"
                 placeholder='Quantity of Item' 
                 value={newQty}
+                required
                 />
             <input
                 onChange={(evt) => setNewUnit(evt.target.value)}
                 type="text"
                 placeholder='Unit of Item' 
                 value={newUnit}
+                required
                 />
             <input type="submit"  value="Save Item"/>
         </form>
