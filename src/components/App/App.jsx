@@ -82,7 +82,6 @@ function App() {
 
         axios.delete(`/list/${item}`)
             .then(response => {
-
                 getItems();
             })
             .catch(err => {

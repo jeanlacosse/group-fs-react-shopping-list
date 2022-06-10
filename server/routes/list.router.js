@@ -75,10 +75,12 @@ router.post('/', (req, res) => {
   pool.query(sqlText, sqlParams)
     .then(() => {
       res.sendStatus(201);
+      
     })
     .catch((err) => {
       console.log('err is', err);
       res.sendStatus(500)
+      
     });
 });
 
