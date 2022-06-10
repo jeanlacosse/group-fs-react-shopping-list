@@ -5,7 +5,6 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import ResetList from '../ResetList/ResetList.jsx';
-
 import ItemDelete from '../ItemDelete/ItemDelete.jsx';
 import ClearAll from '../ItemDelete/ClearAll.jsx';
 
@@ -108,21 +107,21 @@ function App() {
     return (
         <div className="App">
             <Header />
-            
+
             <main>
-           
 
-            <ItemForm  addItem={addItem}/> 
-            <p></p>
-            <ResetList resetList={resetList} />
-            <ClearAll delAll={delAll} /> 
-            <ListContainer 
-            shoppingList={shoppingList} 
-            onPurchaseItem={onPurchaseItem}
-            delItem={delItem}
-            />
 
-            
+                <ItemForm addItem={addItem} />
+                <p></p>
+                <ResetList resetList={resetList} />
+                <ClearAll delAll={delAll} />
+                <ListContainer
+                    shoppingList={shoppingList}
+                    onPurchaseItem={onPurchaseItem}
+                    delItem={delItem}
+                />
+
+
 
 
 
